@@ -67,7 +67,7 @@ let persons = [
 ]
 
 app.get('/', (req, res) => {
-    res.send('<h1>Hello Phonebook!</h1><a href="http://localhost:6001/info">INFO PAGE</a>')
+    res.send('<h1>Hello Phonebook!</h1><a href="https://phonebook-techieeliot.netlify.app//info">INFO PAGE</a>')
   })
   
   app.get('/api/persons', (req, res) => {
