@@ -3,7 +3,6 @@ const express = require("express");
 const app = express();
 app.use(cors());
 
-
 const morgan = require("morgan");
 app.use(express.json());
 // app.use(morgan('tiny'))
@@ -91,7 +90,7 @@ app.delete("/api/persons/:id", (req, res) => {
 
 const generateRandomId = () => {
   const randomId =
-  persons.length > 0 ? Math.floor(Math.random() * 10000000) : 1;
+    persons.length > 0 ? Math.floor(Math.random() * 10000000) : 1;
   return randomId;
 };
 app.post("/api/persons", (req, res) => {
@@ -102,9 +101,9 @@ app.post("/api/persons", (req, res) => {
       error: "name and/or number is missing",
     });
   }
-  
+
   const names = persons.map((person) => person.name);
-  
+
   if (names.includes(body.name)) {
     return res.status(400).json({
       error: "name must be unique",
@@ -116,9 +115,9 @@ app.post("/api/persons", (req, res) => {
     name: body.name,
     number: body.number,
   };
-  
+
   persons = [...persons, person];
-  
+
   res.json(person);
 });
 
