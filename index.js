@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 app.use(cors());
 
+app.use(express.static("build"));
+
 const morgan = require("morgan");
 app.use(express.json());
 // app.use(morgan('tiny'))
@@ -67,10 +69,6 @@ let persons = [
     number: "(876) 362-8989",
   },
 ];
-
-app.get("/", (req, res) => {
-  res.sendFile("./build/index.html");
-});
 
 app.get("/api/persons", (req, res) => {
   res.json(persons);
